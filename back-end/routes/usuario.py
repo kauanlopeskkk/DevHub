@@ -12,10 +12,11 @@ router = APIRouter(
 )
 def criar_usuario(usuario: schemas.UsuarioCriar, db: Session = Depends(get_db)):
 
-usuario_existente = db.query(models.Usuario).filter(models.Usuario.email == usuario.email).first()  
+    usuario_existente = db.query(models.Usuario).filter(
+        models.Usuario.email == usuario.email
+    ).first()
 
-
-if usuario_existente:
+    if usuario_existente:
         raise HTTPException(status_code=400, detail="Email já cadastrado")
     novo_usuario = models.Usuario(
         nome=usuario.nome,
@@ -29,7 +30,7 @@ if usuario_existente:
     return novo_usuario
 
 @router.get("/",response_model=list[schemas.UsuarioResponse])
-def listar_usuarios(db:Session = Depends(get_db)Session):
+def listar_usuarios(db: Session = Depends(get_db)):
     usuarios = db.query(models.Usuario).all()
     return usuarios
 

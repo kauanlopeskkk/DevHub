@@ -10,25 +10,24 @@ class Usuario(Base):
         index = True
     )
 
-nome = Column(
+    nome = Column(
+        String,
+        nullable=False,
+        index=True
+    )
+    email = Column(
+        String,
+        nullable=False,
+        index=True
+    )
 
-    String,
-    nullable= False
-    index = True
-)
-email = Column(
-    String,
-    nullable= False,
-    index = True
-)
+    senha = Column(
+        String,
+        nullable=False,
+        index=True
+    )
 
-senha = Column(
-    String,
-    nullable = False,
-    index = True
-)
-
-projetos = relationship("Projeto", back_populates="usuario")
+    projetos = relationship("Projeto", back_populates="usuario")
 
 
 class Projeto(Base):
@@ -69,64 +68,24 @@ class Projeto(Base):
     tarefas = relationship("Tarefa", back_populates="projetos")
     bugs = relationship("Bug", back_populates="projetos")
 
-    class Tarefa(Base):
-        __tablename__ = "Tarefas"
+class Tarefa(Base):
+    __tablename__ = "Tarefas"
 
-        id = Column(
-            Integer, primary_key = True,
-            index = True
-        )
-        nome = Column(
-            String,
-            nullable = False,
-            index = True
-        )
-        descricao = Column(
-            Text,
-            nullable = False,
-            index = True
-        )
-        status = Column(
-            String,
-            nullable = False,
-            index = True
-        )
-        projeto_id = Column(
-            Integer,
-            ForeignKey("Projetos.id"),
-            nullable = False,
-            index = True
-        )
+    id = Column(Integer, primary_key=True, index=True)
+    nome = Column(String, nullable=False, index=True)
+    descricao = Column(Text, nullable=False, index=True)
+    status = Column(String, nullable=False, index=True)
+    projeto_id = Column(Integer, ForeignKey("Projetos.id"), nullable=False, index=True)
 
-        projetos = relationship("Projeto", back_populates="tarefas")
+    projetos = relationship("Projeto", back_populates="tarefas")
 
-    class Bug(Base):
-        __tablename__ = "Bugs"
+class Bug(Base):
+    __tablename__ = "Bugs"
 
-        id = Column(
-            Integer, primary_key = True,
-            index = True
-        )
-        nome = Column(
-            String,
-            nullable = False,
-            index = True
-        )
-        descricao = Column(
-            Text,
-            nullable = False,
-            index = True
-        )
-        status = Column(
-            String,
-            nullable = False,
-            index = True
-        )
-        projeto_id = Column(
-            Integer,
-            ForeignKey("Projetos.id"),
-            nullable = False,
-            index = True
-        )
+    id = Column(Integer, primary_key=True, index=True)
+    nome = Column(String, nullable=False, index=True)
+    descricao = Column(Text, nullable=False, index=True)
+    status = Column(String, nullable=False, index=True)
+    projeto_id = Column(Integer, ForeignKey("Projetos.id"), nullable=False, index=True)
 
-        projetos = relationship("Projeto", back_populates="bugs")
+    projetos = relationship("Projeto", back_populates="bugs")
