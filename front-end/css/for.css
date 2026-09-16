@@ -1,0 +1,171 @@
+:root{
+
+    --bg-dark: #011226;
+    --bg-card: #011f40;
+    --primary: #00d0ff;
+    --primary-hover: #00a3cc;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --shadow-glow: 0px 4px 30px rgba(0, 208, 255, 0.3);
+    --border-neon: 2px solid rgba(0, 208, 255, 0.3);
+    --transition: all 0.3s ease-in-out;
+
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Usa 100% da altura da tela visível e permite crescer se necessário */
+    background-color: var(--bg-card);
+    padding: 20px;
+}
+.conta-container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap:wrap ;
+    width:100%;
+    max-width: 1200px;
+}
+.conta-container .login-container{
+    width: 100%;
+    max-width: 600px;
+    background: var(--bg-dark);
+    backdrop-filter: blur(0, 208,255,0.3);
+    border: 2px solid rgb(0, 89, 255);
+    padding: 50px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 30px rgb(0, 132, 255);
+    transition: all 0.3s ease-in-out;
+    
+}
+.conta-container .login-container:hover {
+    box-shadow: 0px 15px 50px rgba(0, 208, 255, 0.3), inset 0px 0px 30px rgba(0, 208, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.conta-container .login-container h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #f8fafc;
+    text-align: center;
+    padding-bottom: 50px;
+    font-weight: bold;
+    font-size: 50px;
+    text-shadow: 0px 2px 5px rgba(148, 144, 144, 0.541);
+
+}
+.conta-container .login-container h2{
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #f8fafc;
+    text-align: center;
+    font-style: italic;
+    margin: 20px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    font-size: 20px;
+    text-shadow: 0px 2px 5px rgba(148, 144, 144, 0.541);
+}
+.conta-container .login-container p{
+    color: #f8fafc;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+
+}
+.conta-container .login-container input{
+width: 100%;
+max-width: 500px;
+height: 30px;
+padding: 15px 15px;
+background-color: #0258afe0;
+border-radius: 6px;
+border: 2px solid rgb(3, 153, 212);
+outline: none;
+text-align: center;
+color: #94a3b8;
+
+
+}
+.conta-container .login-container input::placeholder{
+ color: #00ccff;
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: 16px;
+}
+.conta-container .login-container input:hover{
+   background-color: #00aeffd2;
+   transition: background-color 0.5s ease-in-out;
+}
+
+.conta-container .login-container input:focus{
+    border-color: #00d0ff;
+    box-shadow: 0 0 0 4px rgba(0, 208, 255, 0.18);
+    background-color: rgba(2, 88, 175, 0.35);
+}
+
+.conta-container .login-container label{
+    display: block;
+    width: 100%;
+    max-width: 500px;
+
+    margin: 8px 0 6px;
+    color: #f8fafc;
+    font-weight: 700;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.3px;
+}
+
+/* =========================
+   BOTÃO "Entrar"
+   ========================= */
+.conta-container .login-container button[type="submit"]{
+    width: 100%;
+    max-width: 500px;
+
+    margin-top: 14px;
+    padding: 14px 16px;
+
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 900;
+    text-transform: uppercase;
+
+    color: #020617;
+    background: linear-gradient(135deg, #00d0ff 0%, #0051ff 100%);
+    box-shadow: 0px 10px 25px rgba(0, 208, 255, 0.35);
+
+    transition: 0.25s ease;
+}
+
+.conta-container .login-container button[type="submit"]:hover{
+    transform: translateY(-3px);
+    box-shadow: 0px 16px 35px rgba(0, 208, 255, 0.5);
+}
+.conta-container .login-container small{
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.conta-container .login-container a{
+    color: #00d0ff;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.conta-container .login-container a:hover{
+    text-decoration: underline;
+    color: #00a3cc;
+}
