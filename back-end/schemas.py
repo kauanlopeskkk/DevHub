@@ -1,4 +1,4 @@
-from pydantic import BaseModel,ConfigDict,Field
+from pydantic import BaseModel, ConfigDict
 
 class UsuarioCriar(BaseModel):
     nome: str
@@ -8,12 +8,6 @@ class UsuarioCriar(BaseModel):
 class UsuarioLogin(BaseModel):
     email: str
     senha: str
-
-class ProjetoCriar(BaseModel):
-    nome: str
-    descricao: str
-    status: str
-    usuario_id: int
 
 class UsuarioResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True)
@@ -25,6 +19,7 @@ class ProjetoCriar(BaseModel):
     nome: str
     descricao: str
     status: str = "Em andamento"
+    usuario_id: int
 
 class ProjetoResponse(BaseModel):
     id: int
@@ -36,17 +31,15 @@ class ProjetoResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
 class TarefaCriar(BaseModel):
-    titulo: str
+    nome: str
     descricao: str
-    prioridade: str
     status: str = "Pendente"
     projeto_id: int
 
 class TarefaResponse(BaseModel):
     id: int
-    titulo: str
+    nome: str
     descricao: str
-    prioridade: str
     status: str
     projeto_id: int
 
@@ -54,17 +47,15 @@ class TarefaResponse(BaseModel):
 
 
 class BugCriar(BaseModel):
-    titulo: str
+    nome: str
     descricao: str
-    prioridade: str
     status: str = "Aberto"
     projeto_id: int
 
 class BugResponse(BaseModel):
     id: int
-    titulo: str
+    nome: str
     descricao: str
-    prioridade: str
     status: str
     projeto_id: int
 

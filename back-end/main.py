@@ -1,9 +1,15 @@
 from fastapi import FastAPI
-from fastapi.middleware import CORSMiddleware
-from routes import usuarios, projetos, tarefas, bugs  # type: ignore[reportMissingImports]
+from fastapi.middleware.cors import CORSMiddleware
+from routes import usuario, projeto, tarefas, bugs
+
+from database import init_db
 
 
 app = FastAPI()
+
+
+# Inicializa o banco (SQLite) criando as tabelas se ainda não existirem.
+init_db()
 
 app.add_middleware(
 
@@ -15,8 +21,8 @@ allow_headers=["*"],
 
 )
 
-app.include_router(usuarios.router)
+app.include_router(usuario.router)
 
-app.include_router(projetos.router)
+app.include_router(projeto.router)
 app.include_router(tarefas.router)
 app.include_router(bugs.router)

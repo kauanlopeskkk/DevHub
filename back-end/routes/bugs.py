@@ -9,7 +9,7 @@ router = APIRouter(
 
 )
 
-@router.post("/", response_model=list[schemas.BugResponse],status_code=201)
+@router.post("/", response_model=schemas.BugResponse, status_code=201)
 def criar_bug(bug: schemas.BugCriar, db: Session = Depends(get_db)):
 
     projeto = db.query(models.Projeto).filter(models.Projeto.id == bug.projeto_id).first()
@@ -20,9 +20,8 @@ def criar_bug(bug: schemas.BugCriar, db: Session = Depends(get_db)):
 
         )
     novo_bug = models.Bug(
-        titulo = bug.titulo,
+        nome = bug.nome,
         descricao = bug.descricao,
-        prioridade = bug.prioridade,
         status = bug.status,
         projeto_id = bug.projeto_id
     )
@@ -68,9 +67,8 @@ def atualizar_Bug(
     if not bug:
         raise HTTPException(status_code=404, detail="Bug não encontrado")
 
-    bug.titulo = dados.titulo
+    bug.nome = dados.nome
     bug.descricao = dados.descricao
-    bug.prioridade = dados.prioridade
     bug.status = dados.status
     bug.projeto_id = dados.projeto_id
     db.commit()

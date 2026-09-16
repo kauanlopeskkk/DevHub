@@ -18,6 +18,14 @@ SessionLocal = sessionmaker(
 
 Base = declarative_base()
 
+
+def init_db() -> None:
+    # Cria as tabelas conforme os modelos definidos em `models.py`.
+    # Importante para testes locais (principalmente no SQLite).
+    from models import Usuario, Projeto, Tarefa, Bug  # noqa: F401
+
+    Base.metadata.create_all(bind=engine)
+
 def get_db():
     db = SessionLocal()
 

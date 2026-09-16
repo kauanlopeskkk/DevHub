@@ -21,9 +21,8 @@ def criar_tarefa(tarefa: schemas.TarefaCriar, db: Session = Depends(get_db)):
         )
 
     nova_tarefa = models.Tarefa(
-        titulo=tarefa.titulo,
+        nome=tarefa.nome,
         descricao=tarefa.descricao,
-        prioridade=tarefa.prioridade,
         status=tarefa.status,
         projeto_id=tarefa.projeto_id
     )
@@ -69,9 +68,8 @@ def atualizar_tarefa(tarefa_id: int, dados: schemas.TarefaCriar, db: Session = D
         )
 
     # Atualiza os dados
-    tarefa.titulo = dados.titulo
+    tarefa.nome = dados.nome
     tarefa.descricao = dados.descricao
-    tarefa.prioridade = dados.prioridade
     tarefa.status = dados.status
     tarefa.projeto_id = dados.projeto_id
 
