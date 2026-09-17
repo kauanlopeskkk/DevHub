@@ -5,8 +5,8 @@ const formulario = document.getElementById("cadastro-form");
 formulario.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const nome = document.getElementById("nome").value;
-  const email = document.getElementById("email").value;
+  const nome = document.getElementById("nome").value.trim();
+  const email = document.getElementById("email").value.trim();
   const senha = document.getElementById("senha").value;
   const cfsenha = document.getElementById("confirmar-senha").value;
 
@@ -21,18 +21,28 @@ formulario.addEventListener("submit", async (event) => {
     const resposta = await fetch(`${API_URL}/usuarios/`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(dadosUsuarios)
+      body: JSON.stringify(dadosUsuarios),
     });
 
-    if (resposta.ok) {
-      console.log("Usuário cadastrado.");
-    } else {
-      console.error("Erro ao cadastrar usuário.");
+    if (!resposta.ok) {
+      const erro = await resposta.json().catch(() => ({}));
+      alert("Erro ao cadastrar: " + (erro.detail || erro.message || "Tente novamente"));
+      return;
     }
+
+    try {
+      const data = await resposta.json();
+      alert("Conta criada com sucesso! Faça login.");
+      window.location.href = "login.html";
+    } catch (erro) {
+      alert("Erro ao analisar a resposta do servidor: " + erro.message);
+      console.error("Erro ao analisar a resposta JSON:", erro);
+    }
+
   } catch (erro) {
+    alert("Erro ao conectar ao servidor. Tente novamente.");
     console.error("Erro na requisição:", erro);
   }
 });
-

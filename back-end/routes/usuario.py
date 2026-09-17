@@ -4,13 +4,12 @@ from database import get_db
 import models
 import schemas
 router = APIRouter(
-    prefix="/usuarios",
     tags=["usuarios"]
 )
 
-@router.post("/", response_model= schemas.UsuarioResponse
+@router.post("/login", response_model= schemas.UsuarioResponse
 )
-def criar_usuario(usuario: schemas.UsuarioCriar, db: Session = Depends(get_db)):
+def login_usuario(usuario: schemas.UsuarioLogin, db: Session = Depends(get_db)):
 
     usuario_existente = db.query(models.Usuario).filter(
         models.Usuario.email == usuario.email

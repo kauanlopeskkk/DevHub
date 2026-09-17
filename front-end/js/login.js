@@ -1,48 +1,35 @@
 const API_URL = "http://127.0.0.1:8000";
 
-const form1 = getElementById("login-form").value;
+const form = document.getElementById("login-form");
 
-const form2 = addEventListener("submit", async(event) =>{
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
 
-event.preventDefault();
+  const email = document.getElementById("iemail").value.trim();
+  const senha = document.getElementById("isenha").value.trim();
 
-const email = document.getElementById("iemail").value
-const senha = document.getElementById("isenha").value
+  const credenciais = { email, senha };
 
-const credencias = {
-    email: email,
-    senha: senha,
-};
-    try{
-        fetch(`${API_URL}/usuario/login`,{
-          method: "POST",
-          headers: {
-            "Content-Type":
-            "application/json"
-          },
+  try {
+    const resp = await fetch(`${API_URL}/usuarios/login`, { // Corrigido
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(credenciais),
+    });
 
-        body: JSON.stringify(credencias),
-        });
-        if (Response.ok){
+    if (!resp.ok) {
+      const error = await resp.json().catch(() => ({}));
+      throw new Error(error.detail || "Falha no login");
+    }
 
-        const data = await Response.json();
-        alert("Login bem sucedido");
-        console.log(data);
-
-        window.location.href = "dashboard.html"
-     }
-     else {
-        const error = await Response.json();
-        alert("Erro ao conectar ao servidor. Tente Novamente")
-        console.error(error);
-     }
-    }catch (error) {
-        alert("Erro ao conectar ao servidor. Tente novamente")
-        console.error(error);    }
-
-
-
+    const data = await resp.json();
+    localStorage.setItem("usuarioLogado", JSON.stringify(data));
+    alert("Login bem-sucedido!");
+    window.location.href = "dashboard.html";
+  } catch (error) {
+    alert("Erro ao fazer login: " + error.message);
+    console.error("Erro:", error);
+  }
 });
-
-
-
