@@ -21,7 +21,7 @@ allow_headers=["*"],
 
 )
 
-app.include_router(usuario.router)
+app.include_router(usuario.router, prefix="/usuarios")
 
 app.include_router(projeto.router)
 app.include_router(tarefas.router)
