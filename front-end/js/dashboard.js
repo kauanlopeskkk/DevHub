@@ -74,10 +74,10 @@ function renderizarProjetos(projetos) {
     }
 
     container.innerHTML = projetos.map(p => `
-        <div style="background: #f4f4f4; padding: 10px; margin-bottom: 8px; border-radius: 6px; border-left: 4px solid #007bff;">
+        <div class="item-lista">
             <strong>${p.nome}</strong> (ID: ${p.id})<br>
             <small>${p.descricao || "Sem descrição"}</small><br>
-            <span style="font-size: 12px; color: #555;">Status: <b>${p.status}</b></span>
+            <span>Status: <b>${p.status}</b></span>
         </div>
     `).join("");
 }
@@ -92,10 +92,10 @@ function renderizarTarefas(tarefas) {
     }
 
     container.innerHTML = tarefas.map(t => `
-        <div style="background: #f4f4f4; padding: 10px; margin-bottom: 8px; border-radius: 6px; border-left: 4px solid #28a745;">
+        <div class="item-lista tarefa">
             <strong>${t.titulo}</strong> (Projeto ID: ${t.projeto_id})<br>
             <small>${t.descricao || "Sem descrição"}</small><br>
-            <span style="font-size: 12px; color: #555;">Prioridade: <b>${t.prioridade}</b> | Status: <b>${t.status}</b></span>
+            <span>Prioridade: <b>${t.prioridade}</b> | Status: <b>${t.status}</b></span>
         </div>
     `).join("");
 }
@@ -110,10 +110,10 @@ function renderizarBugs(bugs) {
     }
 
     container.innerHTML = bugs.map(b => `
-        <div style="background: #f4f4f4; padding: 10px; margin-bottom: 8px; border-radius: 6px; border-left: 4px solid #dc3545;">
+        <div class="item-lista bug">
             <strong>${b.titulo}</strong> (Projeto ID: ${b.projeto_id})<br>
             <small>${b.descricao || "Sem descrição"}</small><br>
-            <span style="font-size: 12px; color: #555;">Prioridade: <b>${b.prioridade}</b> | Status: <b>${b.status}</b></span>
+            <span>Prioridade: <b>${b.prioridade}</b> | Status: <b>${b.status}</b></span>
         </div>
     `).join("");
 }
