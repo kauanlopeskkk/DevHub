@@ -1,4 +1,4 @@
-# 💻 DevHub - Portfólio Profissional
+#  DevHub - Portfólio Profissional
 
 > **Central de projetos e demonstração de competências em desenvolvimento de software**
 
@@ -10,16 +10,16 @@
 
 **DevHub** é um repositório que consolida meus principais projetos de desenvolvimento, servindo como portfólio profissional para demonstrar conhecimentos em:
 
-- 🐍 Python (FastAPI, Django, Celery)
-- ⚛️   JavaScript moderno
-- 🗄️ Banco de dados (PostgreSQL, Redis, MongoDB)
+-  Python (FastAPI, Django, Celery)
+-    JavaScript moderno
+-  Banco de dados (PostgreSQL, Redis, MongoDB)
 
-- 🔐 Autenticação e segurança
-- ☁️ Deploy e CI/CD
+-  Autenticação e segurança
+-  Deploy e CI/CD
 
-## 🎯 Projetos Inclusos
+##  Projetos Inclusos
 
-### 1. 🍗 **Esquina do Frango e Frios**
+### 1.  **Esquina do Frango e Frios**
 E-commerce para um mercadinho em Pernambuco com sistema completo de vendas online.
 
 **Stack:** React | FastAPI | PostgreSQL | Redis  
@@ -28,7 +28,7 @@ E-commerce para um mercadinho em Pernambuco com sistema completo de vendas onlin
 
 ---
 
-### 2. 🎮 **API Jogos**
+### 2.  **API Jogos**
 Sistema backend robusto para gerenciar dados de jogos com arquitetura de microserviços.
 
 **Stack:** FastAPI | PostgreSQL | Redis | Kafka | Elasticsearch | Celery | Docker  
@@ -59,7 +59,7 @@ GET    /api/jogos/buscar/?q=... # Busca avançada
 
 ---
 
-## 🛠️ Tecnologias Principais
+##  Tecnologias Principais
 
 ### Backend
 | Tecnologia | Versão | Uso |
@@ -91,7 +91,7 @@ GET    /api/jogos/buscar/?q=... # Busca avançada
 
 ---
 
-## 📁 Estrutura do DevHub
+##  Estrutura do DevHub
 
 ```
 DevHub/
@@ -117,7 +117,7 @@ DevHub/
 └── README.md
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Clone o repositório
 
@@ -151,7 +151,7 @@ Elasticsearch:http://localhost:9200
 
 ---
 
-## 📊 Estatísticas do Projeto
+##  Estatísticas do Projeto
 
 - **Linguagens:** Python, JavaScript, SQL
 - **Linhas de Código:** 5000+
@@ -161,7 +161,7 @@ Elasticsearch:http://localhost:9200
 
 ---
 
-## 🔐 Segurança
+##  Segurança
 
 - ✅ JWT para autenticação
 - ✅ CORS configurado
@@ -172,7 +172,7 @@ Elasticsearch:http://localhost:9200
 
 ---
 
-## 🧪 Testes
+##  Testes
 
 ```bash
 # Rodar testes unitários
@@ -187,7 +187,7 @@ pytest tests/integration/ -v
 
 ---
 
-## 📚 Documentação
+##  Documentação
 
 Cada projeto possui sua própria documentação:
 
@@ -202,7 +202,7 @@ http://localhost:8000/docs
 
 ---
 
-## 🤝 Contribuições
+##  Contribuições
 
 Sugestões, bug reports e pull requests são bem-vindos!
 
@@ -214,7 +214,7 @@ Sugestões, bug reports e pull requests são bem-vindos!
 
 ---
 
-## 📖 Guias e Referências
+##  Guias e Referências
 
 ### Como executar um projeto específico
 
@@ -259,7 +259,7 @@ nano .env
 
 ---
 
-## 📈 Roadmap
+##  Roadmap
 
 ### ✅ Completo
 - [x] API REST com FastAPI
@@ -281,7 +281,7 @@ nano .env
 
 
 
-## 📜 Licença
+##  Licença
 
 Este projeto está licenciado sob a **MIT License** - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
